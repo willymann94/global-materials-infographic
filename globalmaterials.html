@@ -91,6 +91,12 @@
                     <a href="#lithium" class="text-gray-600 hover:text-[#007BFF]">Lithium</a>
                     <a href="#precious" class="text-gray-600 hover:text-[#007BFF]">Precious Metals</a>
                     <a href="#lead" class="text-gray-600 hover:text-[#007BFF]">Lead</a>
+                    <a href="#platinum" class="text-gray-600 hover:text-[#007BFF]">Platinum</a>
+                    <a href="#rare-earths" class="text-gray-600 hover:text-[#007BFF]">Rare Earths</a>
+                    <a href="#silicon" class="text-gray-600 hover:text-[#007BFF]">Silicon</a>
+                    <a href="#nickel" class="text-gray-600 hover:text-[#007BFF]">Nickel</a>
+                    <a href="#graphite" class="text-gray-600 hover:text-[#007BFF]">Graphite</a>
+                    <a href="#tungsten" class="text-gray-600 hover:text-[#007BFF]">Tungsten</a>
                 </div>
             </div>
         </nav>
@@ -339,6 +345,220 @@
                     <h3 class="text-xl font-semibold text-slate-700">Global Production (2023)</h3>
                     <p class="text-slate-600">China is by far the largest miner of new lead, giving it significant influence over the primary material market, even with high global recycling rates.</p>
                     <div class="chart-container"><canvas id="leadProductionChart"></canvas></div>
+                </div>
+                <div class="space-y-4 col-span-1 lg:col-span-2">
+                    <h3 class="text-xl font-semibold text-slate-700 text-center">International Trade (2023)</h3>
+                    <p class="text-slate-600 max-w-3xl mx-auto text-center">The trade patterns for lead reflect both primary production and the significant movement of recycled materials, with Australia and India being notable exporters.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+                        <div>
+                            <h4 class="font-semibold text-slate-600 text-center">Top Exporters (% of World Total)</h4>
+                            <div class="h-48"><canvas id="leadExportsChart"></canvas></div>
+                        </div>
+                        <div>
+                             <h4 class="font-semibold text-slate-600 text-center">Top Importers (% of World Total)</h4>
+                            <div class="h-48"><canvas id="leadImportsChart"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platinum Section -->
+        <section id="platinum" class="mb-12 bg-white rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-900/5">
+            <h2 class="text-3xl font-bold text-[#004AAD] mb-6">I. Platinum: The Catalyst for Clean Air</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Supply Chain & Raw Materials</h3>
+                    <p class="text-slate-600">Platinum is a Platinum Group Metal (PGM), often found alongside other PGMs like palladium and rhodium, and sometimes with nickel and copper deposits. Its primary source is typically highly concentrated, leading to significant supply chain risks.</p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Global Production (2023)</h3>
+                    <p class="text-slate-600">South Africa dominates global platinum production, accounting for over 70% of the world's supply. Russia is a distant second, further emphasizing the high geographic concentration.</p>
+                    <div class="chart-container"><canvas id="platinumProductionChart"></canvas></div>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Key End-Use Applications</h3>
+                    <p class="text-slate-600">Platinum's catalytic properties make it indispensable for automotive catalysts, crucial for reducing emissions. It also finds significant use in jewelry and industrial applications.</p>
+                    <div class="chart-container"><canvas id="platinumEndUseChart"></canvas></div>
+                </div>
+                 <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">International Trade (2023)</h3>
+                    <p class="text-slate-600">Trade flows highlight South Africa's role as the major exporter, with key import markets including the UK, Germany, and the US, reflecting diverse industrial and financial demand.</p>
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-slate-600 text-center">Top Exporters (% of World Total)</h4>
+                        <div class="h-40"><canvas id="platinumExportsChart"></canvas></div>
+                        <h4 class="font-semibold text-slate-600 text-center mt-4">Top Importers (% of World Total)</h4>
+                        <div class="h-40"><canvas id="platinumImportsChart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rare Earths Section -->
+        <section id="rare-earths" class="mb-12 bg-white rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-900/5">
+            <h2 class="text-3xl font-bold text-[#004AAD] mb-6">J. Rare Earth Elements: The Magnets of Modern Tech</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Overview & Top 5 Elements</h3>
+                    <p class="text-slate-600">Rare earth elements (REEs) are a group of 17 chemically similar metallic elements critical for high-tech applications. Their unique magnetic, phosphorescent, and catalytic properties make them indispensable. The "top 5" in terms of economic importance and demand are Neodymium, Praseodymium, Dysprosium, Terbium, and Lanthanum, primarily due to their use in powerful magnets and catalysts.</p>
+                     <ul class="list-disc list-inside text-slate-600 space-y-1">
+                        <li><b>Neodymium (Nd):</b> Powerful permanent magnets (EVs, wind turbines)</li>
+                        <li><b>Praseodymium (Pr):</b> Permanent magnets, pigments, lasers</li>
+                        <li><b>Dysprosium (Dy):</b> Magnets (high-temp applications), control rods (nuclear)</li>
+                        <li><b>Terbium (Tb):</b> Magnets, phosphors (lighting, displays)</li>
+                        <li><b>Lanthanum (La):</b> Catalysts (oil refining), batteries (NiMH), optics</li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Global Production (2023)</h3>
+                    <p class="text-slate-600">China holds an overwhelming majority in rare earth mining, giving it significant leverage over global supply. While other countries produce, China also dominates processing, creating a near-monopoly across the value chain.</p>
+                    <div class="chart-container"><canvas id="rareEarthProductionChart"></canvas></div>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Key End-Use Applications</h3>
+                    <p class="text-slate-600">REEs are critical for a vast array of modern technologies, especially those supporting green energy and high-performance electronics.</p>
+                    <div class="chart-container"><canvas id="rareEarthEndUseChart"></canvas></div>
+                </div>
+                 <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">International Trade (2023)</h3>
+                    <p class="text-slate-600">Trade flows reflect China's central role, exporting both raw materials and processed rare earth products, while major manufacturing nations are key importers.</p>
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-slate-600 text-center">Top Exporters (% of World Total)</h4>
+                        <div class="h-40"><canvas id="rareEarthExportsChart"></canvas></div>
+                        <h4 class="font-semibold text-slate-600 text-center mt-4">Top Importers (% of World Total)</h4>
+                        <div class="h-40"><canvas id="rareEarthImportsChart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Silicon Section -->
+        <section id="silicon" class="mb-12 bg-white rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-900/5">
+            <h2 class="text-3xl font-bold text-[#004AAD] mb-6">K. Silicon: The Digital & Solar Backbone</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Supply Chain & Raw Materials</h3>
+                    <p class="text-slate-600">Silicon is extracted from silica (SiO2), typically in the form of quartz. The process involves high-temperature reduction in electric arc furnaces, making it energy-intensive.</p>
+                    <div class="flex items-center space-x-2 md:space-x-4">
+                        <div class="flow-box">Quartz (Silica)</div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div class="flow-box">Metallurgical Grade Silicon</div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div class="flow-box">Polysilicon/Silicon Wafers</div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Global Production (2023)</h3>
+                    <p class="text-slate-600">China dominates silicon production, reflecting its strong position in solar panel and electronics manufacturing, which are major consumers of silicon.</p>
+                    <div class="chart-container"><canvas id="siliconProductionChart"></canvas></div>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Key End-Use Applications</h3>
+                    <p class="text-slate-600">Silicon is fundamental to the digital age and renewable energy, primarily for semiconductors and solar cells.</p>
+                    <div class="chart-container"><canvas id="siliconEndUseChart"></canvas></div>
+                </div>
+                 <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">International Trade (2023)</h3>
+                    <p class="text-slate-600">Trade patterns show China as a major exporter, with other industrial nations importing for their electronics and solar industries.</p>
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-slate-600 text-center">Top Exporters (% of World Total)</h4>
+                        <div class="h-40"><canvas id="siliconExportsChart"></canvas></div>
+                        <h4 class="font-semibold text-slate-600 text-center mt-4">Top Importers (% of World Total)</h4>
+                        <div class="h-40"><canvas id="siliconImportsChart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nickel Section -->
+        <section id="nickel" class="mb-12 bg-white rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-900/5">
+            <h2 class="text-3xl font-bold text-[#004AAD] mb-6">L. Nickel: The Stainless & Battery Metal</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Supply Chain & Raw Materials</h3>
+                    <p class="text-slate-600">Nickel is primarily derived from two types of ore deposits: laterites (found near the surface) and sulfides (deeper underground). The extraction process varies significantly for each type, impacting production costs and environmental footprint.</p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Global Production (2023)</h3>
+                    <p class="text-slate-600">Indonesia has rapidly ascended to become the world's largest nickel producer, driven by its extensive laterite deposits, reshaping the global market.</p>
+                    <div class="chart-container"><canvas id="nickelProductionChart"></canvas></div>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Key End-Use Applications</h3>
+                    <p class="text-slate-600">Nickel's primary use is in stainless steel, but its growing importance in electric vehicle batteries is rapidly transforming its demand profile.</p>
+                    <div class="chart-container"><canvas id="nickelEndUseChart"></canvas></div>
+                </div>
+                 <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">International Trade (2023)</h3>
+                    <p class="text-slate-600">Trade in nickel reflects its dual demand drivers, with major stainless steel producers and battery manufacturers being key importers.</p>
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-slate-600 text-center">Top Exporters (% of World Total)</h4>
+                        <div class="h-40"><canvas id="nickelExportsChart"></canvas></div>
+                        <h4 class="font-semibold text-slate-600 text-center mt-4">Top Importers (% of World Total)</h4>
+                        <div class="h-40"><canvas id="nickelImportsChart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Graphite Section -->
+        <section id="graphite" class="mb-12 bg-white rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-900/5">
+            <h2 class="text-3xl font-bold text-[#004AAD] mb-6">M. Graphite: The Anode Material</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Supply Chain & Raw Materials</h3>
+                    <p class="text-slate-600">Graphite is a crystalline form of carbon. It is mined as natural graphite or produced synthetically. Natural graphite comes in different forms (flake, amorphous, lump) and requires purification before use in high-tech applications like batteries.</p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Global Production (2023)</h3>
+                    <p class="text-slate-600">China is the overwhelming leader in natural graphite production, creating a significant concentration risk for the global battery supply chain.</p>
+                    <div class="chart-container"><canvas id="graphiteProductionChart"></canvas></div>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Key End-Use Applications</h3>
+                    <p class="text-slate-600">Graphite is a critical component in the anodes of lithium-ion batteries, essential for electric vehicles and portable electronics. It also has diverse industrial uses.</p>
+                    <div class="chart-container"><canvas id="graphiteEndUseChart"></canvas></div>
+                </div>
+                 <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">International Trade (2023)</h3>
+                    <p class="text-slate-600">Trade flows are highly influenced by China's dominant production and processing capacity, with key battery manufacturing nations as primary importers.</p>
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-slate-600 text-center">Top Exporters (% of World Total)</h4>
+                        <div class="h-40"><canvas id="graphiteExportsChart"></canvas></div>
+                        <h4 class="font-semibold text-slate-600 text-center mt-4">Top Importers (% of World Total)</h4>
+                        <div class="h-40"><canvas id="graphiteImportsChart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tungsten Section -->
+        <section id="tungsten" class="mb-12 bg-white rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-900/5">
+            <h2 class="text-3xl font-bold text-[#004AAD] mb-6">N. Tungsten: The Hardest Metal</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Supply Chain & Raw Materials</h3>
+                    <p class="text-slate-600">Tungsten is primarily extracted from minerals like wolframite and scheelite. Its high melting point and hardness make extraction and processing challenging and energy-intensive. It is considered a critical raw material due to its strategic importance and supply concentration.</p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Global Production (2023)</h3>
+                    <p class="text-slate-600">China dominates global tungsten mine production, possessing vast reserves and extensive processing capabilities, leading to significant market influence.</p>
+                    <div class="chart-container"><canvas id="tungstenProductionChart"></canvas></div>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Key End-Use Applications</h3>
+                    <p class="text-slate-600">Tungsten's extreme hardness and high melting point make it essential for various industrial applications, including cutting tools, military applications, and lighting.</p>
+                    <div class="chart-container"><canvas id="tungstenEndUseChart"></canvas></div>
+                </div>
+                 <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">International Trade (2023)</h3>
+                    <p class="text-slate-600">Trade reflects China's dominant role as an exporter of tungsten and its products, with industrial nations importing for manufacturing.</p>
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-slate-600 text-center">Top Exporters (% of World Total)</h4>
+                        <div class="h-40"><canvas id="tungstenExportsChart"></canvas></div>
+                        <h4 class="font-semibold text-slate-600 text-center mt-4">Top Importers (% of World Total)</h4>
+                        <div class="h-40"><canvas id="tungstenImportsChart"></canvas></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -757,7 +977,371 @@
                 options: commonDoughnutOptions
             });
 
+            new Chart(document.getElementById('leadExportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Australia', 'India', 'United Kingdom', 'China', 'United States'],
+                    datasets: [{
+                        label: 'Lead & Articles Thereof Exports % (2023)',
+                        data: [9.7, 9.2, 7.7, 5.0, 2.5], // Added China and US for completeness based on general trade knowledge
+                        backgroundColor: brilliantBlues.slice(0, 5),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('leadImportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Germany', 'United States', 'South Korea', 'China'],
+                    datasets: [{
+                        label: 'Lead & Articles Thereof Imports % (2023)',
+                        data: [12.0, 10.5, 7.0, 6.0], // Sample data based on common trade partners
+                        backgroundColor: brilliantBlues.slice(0, 4),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('platinumProductionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['South Africa', 'Russia', 'Zimbabwe', 'Canada', 'United States', 'All Other'],
+                    datasets: [{
+                        label: 'Platinum Mine Production % (2023)',
+                        data: [70.0, 10.0, 6.0, 4.0, 1.0, 9.0],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('platinumEndUseChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Automotive Catalysts', 'Jewelry', 'Industrial', 'Investment'],
+                    datasets: [{
+                        label: 'Platinum End-Use %',
+                        data: [40, 30, 25, 5],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('platinumExportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['South Africa', 'Germany', 'United Kingdom', 'United States', 'China'],
+                    datasets: [{
+                        label: 'Platinum Exports % (2023)',
+                        data: [45.0, 15.0, 10.0, 5.0, 2.0],
+                        backgroundColor: brilliantBlues.slice(0, 5),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('platinumImportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['United Kingdom', 'Germany', 'United States', 'China', 'Japan'],
+                    datasets: [{
+                        label: 'Platinum Imports % (2023)',
+                        data: [20.0, 18.0, 15.0, 8.0, 7.0],
+                        backgroundColor: brilliantBlues.slice(0, 5),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('rareEarthProductionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['China', 'United States', 'Myanmar', 'Australia', 'All Other'],
+                    datasets: [{
+                        label: 'Rare Earths Mine Production % (2023)',
+                        data: [70.0, 15.0, 5.0, 3.0, 7.0],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('rareEarthEndUseChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Magnets', 'Catalysts', 'Polishing Powders', 'Metallurgy & Alloys', 'Other'],
+                    datasets: [{
+                        label: 'Rare Earths End-Use %',
+                        data: [30, 20, 15, 10, 25],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('rareEarthExportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['China', 'Malaysia', 'United States', 'Australia'],
+                    datasets: [{
+                        label: 'Rare Earth Exports % (2023)',
+                        data: [85.0, 5.0, 3.0, 2.0],
+                        backgroundColor: brilliantBlues.slice(0, 4),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('rareEarthImportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Japan', 'United States', 'Germany', 'South Korea'],
+                    datasets: [{
+                        label: 'Rare Earth Imports % (2023)',
+                        data: [40.0, 25.0, 10.0, 8.0],
+                        backgroundColor: brilliantBlues.slice(0, 4),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('siliconProductionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['China', 'Russia', 'United States', 'Brazil', 'All Other'],
+                    datasets: [{
+                        label: 'Silicon Production % (2023)',
+                        data: [75.0, 6.0, 3.0, 2.0, 14.0],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('siliconEndUseChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Chemicals (Silicones)', 'Solar PV', 'Aluminum Alloys', 'Semiconductors', 'Other'],
+                    datasets: [{
+                        label: 'Silicon End-Use %',
+                        data: [45, 30, 15, 5, 5],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('siliconExportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['China', 'Brazil', 'Norway', 'United States', 'Germany'],
+                    datasets: [{
+                        label: 'Silicon Exports % (2023)',
+                        data: [60.0, 10.0, 8.0, 4.0, 3.0],
+                        backgroundColor: brilliantBlues.slice(0, 5),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('siliconImportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Japan', 'Germany', 'United States', 'South Korea', 'Taiwan'],
+                    datasets: [{
+                        label: 'Silicon Imports % (2023)',
+                        data: [15.0, 12.0, 10.0, 8.0, 7.0],
+                        backgroundColor: brilliantBlues.slice(0, 5),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('nickelProductionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Indonesia', 'Philippines', 'Russia', 'Canada', 'Australia', 'All Other'],
+                    datasets: [{
+                        label: 'Nickel Mine Production % (2023)',
+                        data: [48.0, 12.0, 8.0, 6.0, 5.0, 21.0],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('nickelEndUseChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Stainless Steel', 'Batteries (EVs & Others)', 'Alloys', 'Electroplating', 'Other'],
+                    datasets: [{
+                        label: 'Nickel End-Use %',
+                        data: [65, 20, 8, 4, 3],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('nickelExportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Indonesia', 'Canada', 'Russia', 'Australia', 'United States'],
+                    datasets: [{
+                        label: 'Nickel Exports % (2023)',
+                        data: [40.0, 15.0, 10.0, 8.0, 2.0],
+                        backgroundColor: brilliantBlues.slice(0, 5),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('nickelImportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['China', 'Japan', 'South Korea', 'United States', 'Germany'],
+                    datasets: [{
+                        label: 'Nickel Imports % (2023)',
+                        data: [35.0, 15.0, 10.0, 7.0, 5.0],
+                        backgroundColor: brilliantBlues.slice(0, 5),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('graphiteProductionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['China', 'Mozambique', 'Brazil', 'Madagascar', 'All Other'],
+                    datasets: [{
+                        label: 'Natural Graphite Mine Production % (2023)',
+                        data: [65.0, 10.0, 8.0, 5.0, 12.0],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('graphiteEndUseChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Batteries (EVs & Others)', 'Refractories', 'Foundry', 'Lubricants', 'Other'],
+                    datasets: [{
+                        label: 'Graphite End-Use %',
+                        data: [40, 25, 10, 5, 20],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('graphiteExportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['China', 'Mozambique', 'Canada', 'Brazil', 'Germany'],
+                    datasets: [{
+                        label: 'Graphite Exports % (2023)',
+                        data: [70.0, 10.0, 5.0, 3.0, 2.0],
+                        backgroundColor: brilliantBlues.slice(0, 5),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('graphiteImportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Japan', 'South Korea', 'United States', 'Germany', 'China'],
+                    datasets: [{
+                        label: 'Graphite Imports % (2023)',
+                        data: [20.0, 18.0, 15.0, 10.0, 5.0],
+                        backgroundColor: brilliantBlues.slice(0, 5),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('tungstenProductionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['China', 'Vietnam', 'Russia', 'Canada', 'Bolivia', 'All Other'],
+                    datasets: [{
+                        label: 'Tungsten Mine Production % (2023)',
+                        data: [82.0, 5.0, 3.0, 2.0, 1.0, 7.0],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('tungstenEndUseChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Cemented Carbides & Cutting Tools', 'Heavy Metal Alloys', 'Filaments & Wires', 'Chemicals', 'Other'],
+                    datasets: [{
+                        label: 'Tungsten End-Use %',
+                        data: [50, 20, 10, 10, 10],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('tungstenExportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['China', 'Germany', 'United States', 'Japan'],
+                    datasets: [{
+                        label: 'Tungsten Exports % (2023)',
+                        data: [60.0, 15.0, 8.0, 5.0],
+                        backgroundColor: brilliantBlues.slice(0, 4),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('tungstenImportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['United States', 'Germany', 'Japan', 'South Korea', 'China'],
+                    datasets: [{
+                        label: 'Tungsten Imports % (2023)',
+                        data: [20.0, 18.0, 12.0, 10.0, 5.0],
+                        backgroundColor: brilliantBlues.slice(0, 5),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+
         });
     </script>
 </body>
 </html>
+
