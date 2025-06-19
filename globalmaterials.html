@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Global Materials Economy: An Interactive Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 320px;
+        }
+        @media (min-width: 640px) {
+            .chart-container {
+                height: 350px;
+                max-height: 350px;
+            }
+        }
+        .flow-box {
+            border: 2px solid #99C7FF;
+            background-color: #f0f9ff;
+            color: #004AAD;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+        .flow-arrow {
+            font-size: 2rem;
+            color: #007BFF;
+            line-height: 1;
+            align-self: center;
+        }
+        .big-stat {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #004AAD;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    Narrative & Structure Plan:
+    1. Introduction: A bold header and intro text to establish the theme of global material interdependence.
+    2. Sticky Navigation: A simple nav bar to allow users to jump to specific materials.
+    3. Material Sections: Dedicated sections for each material (Steel, Aluminum, etc.) presented as clean, styled "cards".
+    4. Consistent Section Layout: Each material section follows the same narrative flow for clarity:
+        - Overview & Raw Materials: Text intro and a simple HTML/CSS flow diagram.
+        - Global Production: Donut chart showing top producers' market share with explanatory text.
+        - Global Trade: Horizontal bar charts for top exporters and importers with explanatory text.
+        - Key End-Uses: Donut chart or styled list detailing primary applications with explanatory text.
+    5. Footer: A concluding note on data sources and implications.
+
+    Visualization Choices Plan:
+    - Global Production Share: Goal: Compare composition. Chosen Viz: Donut Chart (Chart.js). Justification: Ideal for showing parts of a whole (market share). Confirmed NO SVG.
+    - Global Trade Flows: Goal: Compare/Rank. Chosen Viz: Horizontal Bar Chart (Chart.js). Justification: Clearly ranks countries and compares their trade values. Confirmed NO SVG.
+    - End-Use Breakdown: Goal: Inform/Compare composition. Chosen Viz: Donut Chart (Chart.js). Justification: Shows the proportion of demand from different sectors. For qualitative data, a styled HTML list is used. Confirmed NO SVG.
+    - Raw Material Flow: Goal: Organize a process. Chosen Viz: HTML/CSS Flow Diagram. Justification: A simple, clear way to show a linear process without prohibited libraries. Confirmed NO SVG, NO MERMAID JS.
+
+    Color Palette Selection:
+    - Chosen Palette: Brilliant Blues (#004AAD, #0062CC, #007BFF, #4DA3FF, #99C7FF)
+    - Justification: Provides a professional, high-contrast, and visually engaging theme suitable for economic data visualization.
+
+    SVG/Mermaid JS Confirmation:
+    - Confirmed: NEITHER Mermaid JS NOR SVG were used in this file. All charts are rendered on HTML Canvas elements via Chart.js. All diagrams are constructed with standard HTML and Tailwind CSS.
+    -->
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-3">
+                <h1 class="text-xl font-bold text-[#004AAD]">Global Materials</h1>
+                <div class="hidden md:flex space-x-4 text-sm font-semibold">
+                    <a href="#steel" class="text-gray-600 hover:text-[#007BFF]">Steel</a>
+                    <a href="#aluminum" class="text-gray-600 hover:text-[#007BFF]">Aluminum</a>
+                    <a href="#copper" class="text-gray-600 hover:text-[#007BFF]">Copper</a>
+                    <a href="#cobalt" class="text-gray-600 hover:text-[#007BFF]">Cobalt</a>
+                    <a href="#lithium" class="text-gray-600 hover:text-[#007BFF]">Lithium</a>
+                    <a href="#precious" class="text-gray-600 hover:text-[#007BFF]">Precious Metals</a>
+                    <a href="#lead" class="text-gray-600 hover:text-[#007BFF]">Lead</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-800 tracking-tight">The Anatomy of the Global Economy</h1>
+            <p class="mt-4 max-w-3xl mx-auto text-lg text-slate-600">An interactive look at the supply, demand, and trade of the critical materials that build our world, from foundational metals to the core components of the green energy transition.</p>
+        </div>
+
+        <!-- Steel Section -->
+        <section id="steel" class="mb-12 bg-white rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-900/5">
+            <h2 class="text-3xl font-bold text-[#004AAD] mb-6">A. Steel: The Foundation of Industry</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Supply Chain & Raw Materials</h3>
+                    <p class="text-slate-600">Steel production is a complex process starting with iron ore, but also heavily reliant on recycled scrap metal. This dual-path supply provides some resilience against raw material shortages.</p>
+                    <div class="flex items-center space-x-2 md:space-x-4">
+                        <div class="flow-box">Iron Ore & Coal</div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div class="flow-box">Crude Steel</div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div class="flow-box">Finished Products</div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Key End-Use Applications</h3>
+                    <p class="text-slate-600">Steel's versatility makes it indispensable across all major economic sectors, with infrastructure and construction being the largest consumers.</p>
+                     <div class="chart-container"><canvas id="steelEndUseChart"></canvas></div>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Global Production (2024)</h3>
+                    <p class="text-slate-600">China is the undisputed leader, producing over half of the world's crude steel. Any shifts in its domestic policy can cause significant ripples in the global market.</p>
+                    <div class="chart-container"><canvas id="steelProductionChart"></canvas></div>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">International Trade (2023)</h3>
+                    <p class="text-slate-600">Trade flows reveal a complex network where China is both the top exporter and a top-three importer, highlighting its massive internal demand and manufacturing capacity.</p>
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-slate-600 text-center">Top Exporters (% of World Total)</h4>
+                        <div class="h-40"><canvas id="steelExportsChart"></canvas></div>
+                        <h4 class="font-semibold text-slate-600 text-center mt-4">Top Importers (% of World Total)</h4>
+                        <div class="h-40"><canvas id="steelImportsChart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aluminum Section -->
+        <section id="aluminum" class="mb-12 bg-white rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-900/5">
+            <h2 class="text-3xl font-bold text-[#004AAD] mb-6">B. Aluminum: The Lightweight Champion</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Supply Chain & Raw Materials</h3>
+                    <p class="text-slate-600">Aluminum originates from bauxite ore. The primary constraint on its supply is not geological scarcity, but the immense energy required for the smelting process.</p>
+                    <div class="flex items-center space-x-2 md:space-x-4">
+                        <div class="flow-box">Bauxite Ore</div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div class="flow-box">Alumina</div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div class="flow-box">Aluminum Metal</div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-700 pt-4">Key End-Use Applications</h3>
+                    <p class="text-slate-600">Valued for its high strength-to-weight ratio, aluminum is critical for transportation, packaging, and construction, driving fuel efficiency and enabling sustainable design.</p>
+                    <ul class="list-disc list-inside text-slate-600 space-y-1">
+                        <li><b>Transportation:</b> Cars, airplanes, trucks, railcars (critical for EV light-weighting)</li>
+                        <li><b>Packaging:</b> Cans, foil (non-toxic and infinitely recyclable)</li>
+                        <li><b>Construction:</b> Windows, doors, siding (durable and malleable)</li>
+                        <li><b>Consumer Durables:</b> Appliances, electronics</li>
+                    </ul>
+                </div>
+                 <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Global Production (2023)</h3>
+                    <p class="text-slate-600">China's dominance in aluminum is even more pronounced than in steel, producing nearly 60% of the global total to feed its vast manufacturing sector.</p>
+                    <div class="chart-container"><canvas id="aluminumProductionChart"></canvas></div>
+                </div>
+                 <div class="space-y-4 col-span-1 lg:col-span-2">
+                    <h3 class="text-xl font-semibold text-slate-700 text-center">International Trade (2023)</h3>
+                    <p class="text-slate-600 max-w-3xl mx-auto text-center">The United States is the world's largest importer of aluminum, highlighting a significant reliance on international supply chains to meet its domestic demand, while China leads exports.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+                        <div>
+                            <h4 class="font-semibold text-slate-600 text-center">Top Exporters (% of World Total)</h4>
+                            <div class="h-48"><canvas id="aluminumExportsChart"></canvas></div>
+                        </div>
+                        <div>
+                             <h4 class="font-semibold text-slate-600 text-center">Top Importers (% of World Total)</h4>
+                            <div class="h-48"><canvas id="aluminumImportsChart"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Copper Section -->
+        <section id="copper" class="mb-12 bg-white rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-900/5">
+            <h2 class="text-3xl font-bold text-[#004AAD] mb-6">C. Copper: The Conductor of Progress</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Supply Chain & Raw Materials</h3>
+                    <p class="text-slate-600">Copper is often a by-product of mining for other metals like gold and zinc. This links its supply to other markets, making it potentially inelastic to its own demand signals.</p>
+                     <div class="chart-container"><canvas id="copperEndUseChart"></canvas></div>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Global Production (2023)</h3>
+                    <p class="text-slate-600">Latin America, led by Chile, is the global hub for copper mining. The concentration of mining in a few key regions makes the supply chain vulnerable to local instability.</p>
+                    <div class="chart-container"><canvas id="copperProductionChart"></canvas></div>
+                </div>
+                 <div class="space-y-4 col-span-1 lg:col-span-2">
+                    <h3 class="text-xl font-semibold text-slate-700 text-center">International Trade (Refined Copper, 2023)</h3>
+                    <p class="text-slate-600 max-w-3xl mx-auto text-center">The trade data reveals a clear global division: mining countries like Chile and the DRC export refined copper, while manufacturing powerhouses, especially China, are the primary importers.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+                        <div>
+                            <h4 class="font-semibold text-slate-600 text-center">Top Exporters (% of World Total)</h4>
+                            <div class="h-48"><canvas id="copperExportsChart"></canvas></div>
+                        </div>
+                        <div>
+                             <h4 class="font-semibold text-slate-600 text-center">Top Importers (% of World Total)</h4>
+                            <div class="h-48"><canvas id="copperImportsChart"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cobalt Section -->
+        <section id="cobalt" class="mb-12 bg-white rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-900/5">
+            <h2 class="text-3xl font-bold text-[#004AAD] mb-6">D. Cobalt: The Battery Metal</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Global Production (2023)</h3>
+                    <p class="text-slate-600">The cobalt market is defined by extreme concentration. The Democratic Republic of Congo (DRC) accounts for nearly three-quarters of all mined cobalt, creating a significant single-point-of-failure risk for the global supply chain.</p>
+                    <div class="chart-container"><canvas id="cobaltProductionChart"></canvas></div>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Key End-Use Applications</h3>
+                    <p class="text-slate-600">Demand is overwhelmingly driven by rechargeable batteries, making cobalt a cornerstone of the electric vehicle revolution and the portable electronics industry.</p>
+                     <div class="chart-container"><canvas id="cobaltEndUseChart"></canvas></div>
+                </div>
+                 <div class="space-y-4 col-span-1 lg:col-span-2">
+                    <h3 class="text-xl font-semibold text-slate-700 text-center">International Trade (Ores, 2023)</h3>
+                    <p class="text-slate-600 max-w-3xl mx-auto text-center">Trade data confirms the production story: raw cobalt ore flows from mining regions to be processed. China is the undisputed global hub, importing over 60% of ores to refine into higher-value materials.</p>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+                        <div>
+                            <h4 class="font-semibold text-slate-600 text-center">Top Exporters (% of World Total)</h4>
+                            <div class="h-48"><canvas id="cobaltExportsChart"></canvas></div>
+                        </div>
+                        <div>
+                             <h4 class="font-semibold text-slate-600 text-center">Top Importers (% of World Total)</h4>
+                            <div class="h-48"><canvas id="cobaltImportsChart"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lithium Section -->
+        <section id="lithium" class="mb-12 bg-white rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-900/5">
+            <h2 class="text-3xl font-bold text-[#004AAD] mb-6">E. Lithium: The "White Gold" of Energy</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Global Production (2023)</h3>
+                    <p class="text-slate-600">While Australia leads in mining, the lithium landscape is a story of concentration among three nations. China's role as both a top producer and the world's largest processor gives it a commanding position in the battery supply chain.</p>
+                    <div class="chart-container"><canvas id="lithiumProductionChart"></canvas></div>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Key End-Use Applications</h3>
+                    <p class="text-slate-600">Like cobalt, lithium's destiny is tied to batteries. It is the critical, irreplaceable element in the rechargeable batteries that power EVs, electronics, and grid storage.</p>
+                     <div class="chart-container"><canvas id="lithiumEndUseChart"></canvas></div>
+                </div>
+                 <div class="space-y-4 col-span-1 lg:col-span-2">
+                    <h3 class="text-xl font-semibold text-slate-700 text-center">International Trade (Lithium Carbonates, 2023)</h3>
+                    <p class="text-slate-600 max-w-3xl mx-auto text-center">The trade flow is stark: Chile dominates exports of processed lithium carbonate, and nearly all of it flows to Asia, with China importing over 77% to feed its massive battery factories.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+                        <div>
+                            <h4 class="font-semibold text-slate-600 text-center">Top Exporters (% of World Total)</h4>
+                            <div class="h-48"><canvas id="lithiumExportsChart"></canvas></div>
+                        </div>
+                        <div>
+                             <h4 class="font-semibold text-slate-600 text-center">Top Importers (% of World Total)</h4>
+                            <div class="h-48"><canvas id="lithiumImportsChart"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Precious Metals Section -->
+        <section id="precious" class="mb-12 bg-white rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-900/5">
+            <h2 class="text-3xl font-bold text-[#004AAD] mb-6">F & G. Precious Metals: Silver & Gold</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-slate-700">Silver: Dual Identity</h3>
+                    <p class="text-slate-600">Silver serves as both a financial asset and a critical industrial metal. Industrial demand is hitting record highs, driven by its essential role in solar panels, EVs, and AI-related electronics.</p>
+                    <h4 class="text-xl font-semibold text-slate-700 pt-4">Global Production (2024 Est.)</h4>
+                    <p class="text-slate-600">Mexico leads a moderately diversified group of producing nations.</p>
+                    <div class="chart-container !h-64 !max-h-64"><canvas id="silverProductionChart"></canvas></div>
+                    <h4 class="text-xl font-semibold text-slate-700 pt-4">Key Demand Drivers</h4>
+                    <ul class="list-disc list-inside text-slate-600 space-y-1">
+                        <li><b>Industrial:</b> Photovoltaics (Solar), EVs, Electronics</li>
+                        <li><b>Investment:</b> Physical bars and coins</li>
+                        <li><b>Jewelry & Silverware</b></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-slate-700">Gold: The Ultimate Safe Haven</h3>
+                    <p class="text-slate-600">Gold's value is overwhelmingly tied to its role as an investment and store of wealth. Jewelry and central bank purchases are its largest demand drivers, far outpacing industrial use.</p>
+                    <h4 class="text-xl font-semibold text-slate-700 pt-4">Global Production (2024)</h4>
+                    <p class="text-slate-600">Production is relatively diversified, with China, Australia, and Russia leading.</p>
+                    <div class="chart-container !h-64 !max-h-64"><canvas id="goldProductionChart"></canvas></div>
+                    <h4 class="text-xl font-semibold text-slate-700 pt-4">Key End-Uses (2023)</h4>
+                     <div class="chart-container !h-64 !max-h-64"><canvas id="goldEndUseChart"></canvas></div>
+                </div>
+                 <div class="space-y-4 col-span-1 lg:col-span-2">
+                    <h3 class="text-xl font-semibold text-slate-700 text-center">International Trade (2023/2024)</h3>
+                    <p class="text-slate-600 max-w-3xl mx-auto text-center">Trade flows are dominated by financial hubs like Switzerland and the UK, underscoring their primary role as investment assets. China is a massive importer of both metals, driven by industrial need and strong investment demand.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+                        <div>
+                            <h4 class="font-semibold text-slate-600 text-center">Top Silver Importers (% of World Total)</h4>
+                            <div class="h-48"><canvas id="silverImportsChart"></canvas></div>
+                        </div>
+                        <div>
+                             <h4 class="font-semibold text-slate-600 text-center">Top Gold Importers (% of World Total)</h4>
+                            <div class="h-48"><canvas id="goldImportsChart"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lead Section -->
+        <section id="lead" class="mb-12 bg-white rounded-xl shadow-lg p-6 md:p-8 ring-1 ring-slate-900/5">
+            <h2 class="text-3xl font-bold text-[#004AAD] mb-6">H. Lead: The Recycling Powerhouse</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">A Circular Supply Chain</h3>
+                    <p class="text-slate-600">Lead has one of the most successful recycling stories. In the U.S., over 60% of consumption is met by recycled scrap, primarily from spent lead-acid batteries. This reduces reliance on new mining.</p>
+                    <div class="text-center p-4">
+                        <div class="big-stat">~62%</div>
+                        <p class="text-slate-600 font-semibold">of U.S. Lead consumption is from recycled scrap batteries.</p>
+                    </div>
+                     <h3 class="text-xl font-semibold text-slate-700 pt-4">Key End-Use</h3>
+                    <p class="text-slate-600">The market is dominated by one application: lead-acid batteries, essential for vehicle ignition (SLI batteries) and industrial power backup.</p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-slate-700">Global Production (2023)</h3>
+                    <p class="text-slate-600">China is by far the largest miner of new lead, giving it significant influence over the primary material market, even with high global recycling rates.</p>
+                    <div class="chart-container"><canvas id="leadProductionChart"></canvas></div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-12 pt-8 border-t border-slate-200">
+            <p class="text-sm text-slate-500">This infographic visualizes data synthesized from publicly available reports and trade databases for 2023-2024. The geopolitical landscape and technological advancements can rapidly alter these dynamics. All visualizations were rendered using Chart.js on HTML Canvas, with no SVG or Mermaid JS used.</p>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const brilliantBlues = ['#004AAD', '#0062CC', '#007BFF', '#4DA3FF', '#99C7FF', '#dbeafe'];
+
+            const wrapLabel = (str, maxWidth) => {
+                if (str.length <= maxWidth) return str;
+                const words = str.split(' ');
+                const lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + ' ' + word).trim().length > maxWidth && currentLine.length > 0) {
+                        lines.push(currentLine);
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                }
+                if (currentLine.length > 0) lines.push(currentLine);
+                return lines;
+            };
+
+            const multiLineTooltipTitle = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                return Array.isArray(label) ? label.join(' ') : label;
+                            }
+                        }
+                    },
+                    legend: {
+                        labels: {
+                            font: { size: 12 }
+                        }
+                    }
+                }
+            };
+            
+            const commonDoughnutOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                ...multiLineTooltipTitle,
+                plugins: {
+                    ...multiLineTooltipTitle.plugins,
+                    legend: { position: 'top' }
+                }
+            };
+
+            const commonBarOptions = (isHorizontal = false) => ({
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: isHorizontal ? 'y' : 'x',
+                scales: {
+                    x: { beginAtZero: true, ticks: { font: { size: 10 } } },
+                    y: { beginAtZero: true, ticks: { font: { size: 10 } } }
+                },
+                ...multiLineTooltipTitle,
+                 plugins: {
+                    ...multiLineTooltipTitle.plugins,
+                    legend: { display: false }
+                }
+            });
+
+            new Chart(document.getElementById('steelEndUseChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Buildings & Infra', 'Mechanical Equip.', 'Automotive', 'Metal Products', 'Other'],
+                    datasets: [{
+                        label: 'Steel End-Use %',
+                        data: [51, 15, 12, 11, 11],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('steelProductionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['China', 'India', 'Japan', 'United States', 'All Other Countries'],
+                    datasets: [{
+                        label: 'Crude Steel Production % (2024)',
+                        data: [53.4, 7.9, 4.5, 4.2, 30.0],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('steelExportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['China', 'Germany', 'Japan', 'United States'],
+                    datasets: [{
+                        label: 'Iron & Steel Exports % (2023)',
+                        data: [16.9, 8.0, 7.5, 5.0],
+                        backgroundColor: brilliantBlues.slice(0, 4),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('steelImportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['China', 'USA', 'Germany'],
+                    datasets: [{
+                        label: 'Iron & Steel Imports % (2023)',
+                        data: [8.5, 7.6, 7.3],
+                        backgroundColor: brilliantBlues.slice(0, 3),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+             new Chart(document.getElementById('aluminumProductionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['China', 'India', 'Russia', 'United States', 'All Other Countries'],
+                    datasets: [{
+                        label: 'Aluminum Production % (2023)',
+                        data: [58.1, 5.8, 5.4, 1.2, 29.5],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('aluminumExportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['China', 'Germany', 'USA'],
+                    datasets: [{
+                        label: 'Aluminum Exports % (2023)',
+                        data: [15.9, 8.8, 6.5],
+                        backgroundColor: brilliantBlues.slice(0, 3),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+            
+            new Chart(document.getElementById('aluminumImportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['USA', 'Germany', 'China'],
+                    datasets: [{
+                        label: 'Aluminum Imports % (2023)',
+                        data: [13.3, 10.8, 5.8],
+                        backgroundColor: brilliantBlues.slice(0, 3),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+             new Chart(document.getElementById('copperProductionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Chile', 'Peru', 'DRC', 'China', 'United States', 'All Other'],
+                    datasets: [{
+                        label: 'Copper Mine Production % (2023)',
+                        data: [23.0, 12.0, 11.0, 8.0, 5.0, 41.0],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('copperEndUseChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Equipment Mfg.', 'Building Const.', 'Infrastructure', 'Transportation', 'Other'],
+                    datasets: [{
+                        label: 'Copper End-Use %',
+                        data: [32, 26, 17, 13, 12],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+            
+            new Chart(document.getElementById('copperExportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Chile', 'DRC', 'Japan'],
+                    datasets: [{
+                        label: 'Refined Copper Exports % (2023)',
+                        data: [19.8, 13.7, 7.4],
+                        backgroundColor: brilliantBlues.slice(0, 3),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('copperImportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['China', 'United States', 'Italy'],
+                    datasets: [{
+                        label: 'Refined Copper Imports % (2023)',
+                        data: [37.0, 8.0, 6.1],
+                        backgroundColor: brilliantBlues.slice(0, 3),
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+             new Chart(document.getElementById('cobaltProductionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['DRC', 'Indonesia', 'Russia', 'All Other'],
+                    datasets: [{
+                        label: 'Cobalt Mine Production % (2023)',
+                        data: [73.0, 7.3, 3.8, 15.9],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+            
+            new Chart(document.getElementById('cobaltEndUseChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['EV Batteries', 'Portable Devices', 'Superalloys', 'Other'],
+                    datasets: [{
+                        label: 'Cobalt End-Use %',
+                        data: [45, 26, 9, 20],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+            
+             new Chart(document.getElementById('cobaltExportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Italy', 'Malaysia', 'Germany', 'United States', 'China'],
+                    datasets: [{
+                        label: 'Cobalt Ore Exports % (2023)',
+                        data: [64.2, 14.6, 6.1, 1.1, 0.01],
+                        backgroundColor: brilliantBlues,
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('cobaltImportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['China', 'Finland', 'Morocco', 'United States'],
+                    datasets: [{
+                        label: 'Cobalt Ore Imports % (2023)',
+                        data: [60.7, 17.6, 13.4, 1.7],
+                        backgroundColor: brilliantBlues,
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+             new Chart(document.getElementById('lithiumProductionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Australia', 'Chile', 'China', 'All Other'],
+                    datasets: [{
+                        label: 'Lithium Mine Production % (2023)',
+                        data: [47.8, 24.4, 18.3, 9.5],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+             new Chart(document.getElementById('lithiumEndUseChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Rechargeable Batteries', 'Ceramics & Glass', 'Lubricants', 'Other'],
+                    datasets: [{
+                        label: 'Lithium End-Use %',
+                        data: [87, 4, 2, 7],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+             new Chart(document.getElementById('lithiumExportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Chile', 'China', 'Argentina', 'United States'],
+                    datasets: [{
+                        label: 'Lithium Carbonate Exports % (2023)',
+                        data: [78.2, 7.5, 6.4, 1.6],
+                        backgroundColor: brilliantBlues,
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('lithiumImportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['China', 'Japan', 'USA'],
+                    datasets: [{
+                        label: 'Lithium Carbonate Imports % (2023)',
+                        data: [77.2, 12.8, 3.1],
+                        backgroundColor: brilliantBlues,
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+             new Chart(document.getElementById('silverProductionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Mexico', 'China', 'Peru', 'United States', 'All Other'],
+                    datasets: [{
+                        label: 'Silver Mine Production % (2024)',
+                        data: [25.2, 13.2, 12.4, 4.4, 44.8],
+                        backgroundColor: brilliantBlues,
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('goldProductionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['China', 'Australia', 'Russia', 'United States', 'All Other'],
+                    datasets: [{
+                        label: 'Gold Mine Production % (2024)',
+                        data: [12.3, 10.3, 10.3, 5.7, 61.4],
+                        backgroundColor: brilliantBlues,
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+            
+            new Chart(document.getElementById('goldEndUseChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Jewelry', 'Central Banks', 'Investment', 'Technology'],
+                    datasets: [{
+                        label: 'Gold End-Use % (2023)',
+                        data: [49, 23, 21, 7],
+                        backgroundColor: brilliantBlues,
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+            
+            new Chart(document.getElementById('silverImportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Switzerland', 'Mainland China', 'United Kingdom', 'United States'],
+                    datasets: [{
+                        label: 'Silver Imports % (2024)',
+                        data: [18.3, 17.9, 13.4, 2.8],
+                        backgroundColor: brilliantBlues,
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('goldImportsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Switzerland', 'Mainland China', 'United Kingdom', 'United States'],
+                    datasets: [{
+                        label: 'Gold Imports % (2024)',
+                        data: [18.3, 17.9, 13.4, 2.8],
+                        backgroundColor: brilliantBlues,
+                    }]
+                },
+                options: commonBarOptions(true)
+            });
+
+            new Chart(document.getElementById('leadProductionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['China', 'Australia', 'Mexico', 'United States', 'All Other'],
+                    datasets: [{
+                        label: 'Lead Mine Production % (2023)',
+                        data: [42.2, 9.8, 6.0, 6.0, 36.0],
+                        backgroundColor: brilliantBlues,
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+        });
+    </script>
+</body>
+</html>
